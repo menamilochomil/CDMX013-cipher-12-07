@@ -22,7 +22,7 @@ const cipher = {
       } else if (newCode <= 64 && newCode >= 32) {
         let inputTextSpecial = String.fromCharCode(newCode);
         yourTextEncode += inputTextSpecial;
-      } else if(newCode === 191 || newCode === 161 || newCode===241 || newCode===209){
+      } else {
         let inputTextSpecial = String.fromCharCode(newCode);
         yourTextEncode += inputTextSpecial;
       }
