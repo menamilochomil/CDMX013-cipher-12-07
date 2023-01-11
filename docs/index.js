@@ -1,8 +1,9 @@
-//Display second view
+import cipher from './cipher.js';
 import { pressButton, displayView } from './newView.js';
+
+//Display second view
 pressButton.addEventListener("click", displayView);
 
-import cipher from './cipher.js';
 //DOM Elements
 const inputButton = document.getElementById("cipherButton");
 const outputButton = document.getElementById("decipherButton");
@@ -10,7 +11,7 @@ const outputButton = document.getElementById("decipherButton");
 
 //Bringing info to the interface
 function encode() {
-    let offset = (document.getElementById("numberSelect").value);
+    let offset = document.getElementById("numberSelect").value;
     let textEncode = document.getElementById("cipherBox").value;
     let printAnswer = document.getElementById("decipherBox");
     printAnswer.value = cipher.encode(offset, textEncode);

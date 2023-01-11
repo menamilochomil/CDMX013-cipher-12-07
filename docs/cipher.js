@@ -3,8 +3,8 @@ const cipher = {
   encode: (offset, textEncode) => {
 
     //Conditionals for throwing TypeError. This throws error too: if(offset == 0) throw "No es un número válido";
-    if (offset == 0) throw (TypeError("No es un número válido"));
-    if (offset == null || textEncode == []) throw (TypeError("Por favor ingrese los valores"));
+    if (offset == 0) throw (TypeError("Invalid number"));
+    if (offset == null || textEncode == []) throw (TypeError("Please write the values"));
 
     //Working with loops
     let yourTextEncode = [];
@@ -19,9 +19,6 @@ const cipher = {
       } else if (newCode <= 122 && newCode >= 97) {
         let inputTextLower = String.fromCharCode((newCode - 97 + offsetNum) % 26 + 97);
         yourTextEncode += inputTextLower;
-      } else if (newCode <= 64 && newCode >= 32) {
-        let inputTextSpecial = String.fromCharCode(newCode);
-        yourTextEncode += inputTextSpecial;
       } else {
         let inputTextSpecial = String.fromCharCode(newCode);
         yourTextEncode += inputTextSpecial;
@@ -33,8 +30,8 @@ const cipher = {
   //second key for decoding
   decode: function (offset, textDecode) {
 
-    if (offset == 0) throw (TypeError("No es un número válido"));
-    if (offset == null || textDecode == []) throw (TypeError("Por favor ingrese los valores"));
+    if (offset == 0) throw (TypeError("Invalid number"));
+    if (offset == null || textDecode == []) throw (TypeError("Please write the values"));
 
     let yourTextDecode = [];
     for (let i = 0; i < textDecode.length; i++) {
@@ -47,10 +44,7 @@ const cipher = {
       } else if (newDecode <= 122 && newDecode >= 97) {
         let inputTextLower = String.fromCharCode((newDecode - 122 - offsetNum) % 26 + 122);
         yourTextDecode += inputTextLower;
-      } else if (newDecode <= 64 && newDecode >= 32) {
-        let inputTextSpecial = String.fromCharCode(newDecode);
-        yourTextDecode += inputTextSpecial;
-      }else if(newDecode === 191 || newDecode === 161 || newDecode===241 || newDecode===209){
+      }else {
         let inputTextSpecial = String.fromCharCode(newDecode);
         yourTextDecode += inputTextSpecial;
       }
